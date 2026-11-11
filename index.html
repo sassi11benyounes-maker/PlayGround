@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#10131e" />
+  <link rel="icon" href="data:," />
+  <title>Pokémon — Neon Showdown</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <div id="battle-scene" aria-label="3D Pokémon battle arena"></div>
+    <div class="scene-vignette"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Pokémon Neon Showdown home"><span class="brand-mark">P</span><span>POKÉMON <i> / </i> <b>NEON SHOWDOWN</b></span></a>
+      <div class="top-meta"><span class="live-dot"></span><span>LIVE BATTLE</span><span class="meta-divider"></span><span id="turn-label">TURN 01</span><button class="sound-button" id="sound-button" aria-label="Toggle sound">♫ <span>SOUND ON</span></button></div>
+    </header>
+    <div class="arena-label"><span class="arena-line"></span><span>INDIGO PLATEAU</span><span class="arena-line"></span></div>
+    <section class="status-card enemy-status" id="enemy-status">
+      <div class="status-top"><div><div class="pokemon-title"><span id="enemy-name">Gengar</span><span class="gender">♂</span></div><div class="level-line">LV. <span id="enemy-level">28</span> <span class="type-pill type-ghost">GHOST</span><span class="type-pill type-poison">POISON</span></div></div><div class="ball-icon">●</div></div>
+      <div class="hp-track"><div class="hp-fill" id="enemy-hp-fill"></div></div><div class="hp-numbers"><span>HP</span><span id="enemy-hp-text">100 / 100</span></div>
+    </section>
+    <section class="status-card player-status" id="player-status">
+      <div class="status-top"><div><div class="pokemon-title"><span id="player-name">Pikachu</span><span class="gender">♂</span></div><div class="level-line">LV. <span id="player-level">25</span> <span class="type-pill type-electric">ELECTRIC</span></div></div><div class="ball-icon">●</div></div>
+      <div class="hp-track"><div class="hp-fill" id="player-hp-fill"></div></div><div class="hp-numbers"><span>HP</span><span id="player-hp-text">100 / 100</span></div>
+      <div class="xp-track"><div class="xp-fill" id="player-xp-fill"></div></div>
+    </section>
+    <div class="battle-toast" id="battle-toast" aria-live="polite"><span class="toast-spark">✦</span><span id="toast-message">A wild Gengar appeared!</span></div>
+    <section class="battle-panel" id="battle-panel">
+      <div class="battle-copy"><div class="copy-kicker"><span class="copy-dot"></span> YOUR MOVE</div><div class="battle-message" id="battle-message">What will <b>Pikachu</b> do?</div></div>
+      <div class="action-area" id="action-area">
+        <div class="move-grid" id="move-grid">
+          <button class="move-card electric-move" data-move="Thunderbolt"><span class="move-icon">ϟ</span><span class="move-info"><strong>Thunderbolt</strong><small>ELECTRIC <i>·</i> POWER 90</small></span><span class="move-pp" id="pp-Thunderbolt">15 <i>/ 15</i></span><span class="move-arrow">↗</span></button>
+          <button class="move-card normal-move" data-move="Quick Attack"><span class="move-icon">➤</span><span class="move-info"><strong>Quick Attack</strong><small>NORMAL <i>·</i> POWER 40</small></span><span class="move-pp" id="pp-Quick Attack">30 <i>/ 30</i></span><span class="move-arrow">↗</span></button>
+          <button class="move-card steel-move" data-move="Iron Tail"><span class="move-icon">⌁</span><span class="move-info"><strong>Iron Tail</strong><small>STEEL <i>·</i> POWER 100</small></span><span class="move-pp" id="pp-Iron Tail">15 <i>/ 15</i></span><span class="move-arrow">↗</span></button>
+          <button class="move-card" id="switch-button"><span class="move-icon switch-icon">⇄</span><span class="move-info"><strong>Pokémon</strong><small>SWITCH YOUR ACTIVE</small></span><span class="move-arrow">↗</span></button>
+        </div>
+        <div class="sub-panel hidden" id="sub-panel"></div>
+        <div class="action-footer"><span><kbd>1</kbd>–<kbd>3</kbd> SELECT MOVE</span><span class="turn-note">BATTLE <i>•</i> WILD ENCOUNTER</span></div>
+      </div>
+    </section>
+    <div class="battle-log" id="battle-log"><span class="log-mark">✦</span><span id="log-text">The air is charged with energy...</span><button id="log-toggle" aria-label="Show battle log">⌃</button></div>
+    <div class="log-history hidden" id="log-history"></div>
+    <div class="mobile-hint">TAP A MOVE TO ATTACK</div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
